@@ -1,6 +1,6 @@
 using NuciLog.Core;
 
-namespace ExonymsAPI.Logging
+namespace DynamicDnsUpdater.API.Logging
 {
     public sealed class MyOperation : Operation
     {
