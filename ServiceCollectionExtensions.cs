@@ -5,6 +5,7 @@ using NuciLog;
 using NuciLog.Configuration;
 using NuciLog.Core;
 
+using DynamicDnsUpdater.API.Configuration;
 using DynamicDnsUpdater.API.Service;
 using DynamicDnsUpdater.API.Service.Integrations.Gandi;
 
@@ -16,10 +17,13 @@ namespace DynamicDnsUpdater.API
             this IServiceCollection services,
             IConfiguration configuration)
         {
+            GandiSettings gandiSettings = new();
             NuciLoggerSettings nuciLoggerSettings = new();
 
+            configuration.Bind(nameof(GandiSettings), gandiSettings);
             configuration.Bind(nameof(NuciLoggerSettings), nuciLoggerSettings);
 
+            services.AddSingleton(gandiSettings);
             services.AddSingleton(nuciLoggerSettings);
 
             return services;

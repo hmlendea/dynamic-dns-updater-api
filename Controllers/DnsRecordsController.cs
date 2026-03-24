@@ -16,7 +16,7 @@ namespace DynamicDnsUpdater.API.Controllers
         public async Task<ActionResult> Update(
             [FromRoute] string domainName,
             [FromBody] PutDnsRecordRequest request)
-            => ProcessRequest(
+            => await ProcessRequestAsync(
                 request,
                 () => service.Update(
                     domainName,
