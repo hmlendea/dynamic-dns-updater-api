@@ -17,7 +17,8 @@ namespace DynamicDnsUpdater.API
 
             services
                 .AddConfigurations(Configuration)
-                .AddCustomServices();
+                .AddCustomServices()
+                .AddNuciApiReplayProtection();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -34,6 +35,10 @@ namespace DynamicDnsUpdater.API
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseRouting();
+
+            app.UseNuciApiHeaderValidation();
+            app.UseNuciApiReplayProtection();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
