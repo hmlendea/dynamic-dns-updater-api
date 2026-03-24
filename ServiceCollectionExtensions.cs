@@ -17,12 +17,15 @@ namespace DynamicDnsUpdater.API
             this IServiceCollection services,
             IConfiguration configuration)
         {
+            SecuritySettings securitySettings = new();
             GandiSettings gandiSettings = new();
             NuciLoggerSettings nuciLoggerSettings = new();
 
+            configuration.Bind(nameof(SecuritySettings), securitySettings);
             configuration.Bind(nameof(GandiSettings), gandiSettings);
             configuration.Bind(nameof(NuciLoggerSettings), nuciLoggerSettings);
 
+            services.AddSingleton(securitySettings);
             services.AddSingleton(gandiSettings);
             services.AddSingleton(nuciLoggerSettings);
 

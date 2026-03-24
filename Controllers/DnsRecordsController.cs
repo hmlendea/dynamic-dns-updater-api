@@ -3,15 +3,18 @@ using Microsoft.AspNetCore.Mvc;
 using DynamicDnsUpdater.API.Requests;
 using DynamicDnsUpdater.API.Service;
 using NuciAPI.Controllers;
-using System;
+using DynamicDnsUpdater.API.Configuration;
 
 namespace DynamicDnsUpdater.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class DnsRecordsController(
-        IDnsRecordService service) : NuciApiController
+        IDnsRecordService service,
+        SecuritySettings securitySettings) : NuciApiController
     {
+        NuciApiAuthorisation authorisation = NuciApiAuthorisation.ApiKey(securitySettings.ApiKey);
+
         [HttpPut("{domainName}")]
         public async Task<ActionResult> Update(
             [FromRoute] string domainName,
@@ -22,6 +25,6 @@ namespace DynamicDnsUpdater.API.Controllers
                     domainName,
                     request.IpAddress,
                     request.DnsProvider),
-                NuciApiAuthorisation.None);
+                authorisation);
     }
 }
