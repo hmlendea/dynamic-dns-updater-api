@@ -7,6 +7,6 @@ namespace DynamicDnsUpdater.API.Service
         Task Update(
             string domainName,
             string ipAddress,
-            string dnsProvider);
+            string dnsProviderName);
     }
 }

@@ -6,6 +6,7 @@ using NuciLog.Configuration;
 using NuciLog.Core;
 
 using DynamicDnsUpdater.API.Service;
+using DynamicDnsUpdater.API.Service.Integrations.Gandi;
 
 namespace DynamicDnsUpdater.API
 {
@@ -27,6 +28,7 @@ namespace DynamicDnsUpdater.API
         public static IServiceCollection AddCustomServices(
             this IServiceCollection services) => services
                 .AddTransient<ILogger, NuciLogger>()
-                .AddSingleton<IDnsRecordService, DnsRecordService>();
+                .AddTransient<IDnsRecordService, DnsRecordService>()
+                .AddTransient<IGandiService, GandiService>();
     }
 }

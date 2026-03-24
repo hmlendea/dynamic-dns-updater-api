@@ -3,18 +3,20 @@ using Microsoft.AspNetCore.Mvc;
 using DynamicDnsUpdater.API.Requests;
 using DynamicDnsUpdater.API.Service;
 using NuciAPI.Controllers;
+using System;
 
 namespace DynamicDnsUpdater.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class DnsRecordsController(DnsRecordService service) : NuciApiController
+    public class DnsRecordsController(
+        IDnsRecordService service) : NuciApiController
     {
         [HttpPut("{domainName}")]
-        public async Task<ActionResult> Get(
+        public async Task<ActionResult> Update(
             [FromRoute] string domainName,
-            [FromQuery] PutDnsRecordRequest request)
-            => await ProcessRequestAsync(
+            [FromBody] PutDnsRecordRequest request)
+            => ProcessRequest(
                 request,
                 () => service.Update(
                     domainName,
