@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 
 namespace DynamicDnsUpdater.API.Service
 {
-    public class DnsRecordService() : IDnsRecordService
+    public class DnsRecordService : IDnsRecordService
     {
         public async Task Update(
             string domainName,

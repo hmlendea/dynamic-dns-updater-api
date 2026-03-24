@@ -16,11 +16,13 @@ namespace DynamicDnsUpdater.API
             services.AddControllers();
 
             services
+                .AddConfigurations(Configuration)
                 .AddCustomServices();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseNuciApiRequestLogging();
             app.UseNuciApiExceptionHandling();
 
             if (env.IsDevelopment())

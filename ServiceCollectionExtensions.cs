@@ -1,14 +1,32 @@
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using NuciLog;
+using NuciLog.Configuration;
+using NuciLog.Core;
+
 using DynamicDnsUpdater.API.Service;
-using Microsoft.Extensions.Configuration;
 
 namespace DynamicDnsUpdater.API
 {
     public static class ServiceCollectionExtensions
     {
+        public static IServiceCollection AddConfigurations(
+            this IServiceCollection services,
+            IConfiguration configuration)
+        {
+            NuciLoggerSettings nuciLoggerSettings = new();
+
+            configuration.Bind(nameof(NuciLoggerSettings), nuciLoggerSettings);
+
+            services.AddSingleton(nuciLoggerSettings);
+
+            return services;
+        }
+
         public static IServiceCollection AddCustomServices(
             this IServiceCollection services) => services
+                .AddTransient<ILogger, NuciLogger>()
                 .AddSingleton<IDnsRecordService, DnsRecordService>();
     }
 }
