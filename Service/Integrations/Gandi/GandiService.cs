@@ -1,6 +1,7 @@
 using System;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using DynamicDnsUpdater.API.Configuration;
@@ -56,10 +57,17 @@ namespace DynamicDnsUpdater.API.Service.Integrations.Gandi
             HttpResponseMessage response = await client.PutAsync(url, content);
             string responseBody = await response.Content.ReadAsStringAsync();
 
-
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exception($"Failed to update DNS record. Status code: {response.StatusCode}, Response: {responseBody}");
+                string errorMessage = $"Failed to update DNS record. Status code: {response.StatusCode}, Response: {responseBody}";
+
+                using JsonDocument doc = JsonDocument.Parse(responseBody);
+                if (doc.RootElement.TryGetProperty("message", out JsonElement message))
+                {
+                    errorMessage = message.GetString();
+                }
+
+                throw new HttpRequestException(errorMessage);
             }
         }
     }

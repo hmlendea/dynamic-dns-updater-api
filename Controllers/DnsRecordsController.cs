@@ -13,7 +13,7 @@ namespace DynamicDnsUpdater.API.Controllers
         IDnsRecordService service,
         SecuritySettings securitySettings) : NuciApiController
     {
-        NuciApiAuthorisation authorisation = NuciApiAuthorisation.ApiKey(securitySettings.ApiKey);
+        readonly NuciApiAuthorisation authorisation = NuciApiAuthorisation.ApiKey(securitySettings.ApiKey);
 
         [HttpPut("{domainName}")]
         public async Task<ActionResult> Update(
