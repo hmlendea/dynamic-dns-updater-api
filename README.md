@@ -7,6 +7,7 @@ Lightweight ASP.NET Core API for updating DNS records through DNS provider integ
 ## Features
 
 - Update DNS records over HTTP
+- Skip provider updates when DNS resolution already returns the requested IP
 - API-key protected endpoint
 - Replay protection and request logging
 - Provider-based integration architecture
