@@ -6,17 +6,12 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using DynamicDnsUpdater.API.Configuration;
 using NuciExtensions;
-using NuciLog.Core;
 
 namespace DynamicDnsUpdater.API.Service.Integrations.Gandi
 {
-    public class GandiService(
-        GandiSettings settings,
-        ILogger logger) : ProviderService(logger), IGandiService
+    public class GandiService(GandiSettings settings) : IGandiService
     {
-        public override string ProviderName => "Gandi";
-
-        protected override async Task PerformUpdate(
+        public async Task Update(
             string domainName,
             string ipAddress)
         {
