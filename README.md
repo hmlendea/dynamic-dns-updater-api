@@ -2,6 +2,8 @@
 
 # Dynamic DNS Updater API
 
+# About
+
 Lightweight ASP.NET Core API for updating DNS records through DNS provider integrations.
 
 ## Features
@@ -12,10 +14,6 @@ Lightweight ASP.NET Core API for updating DNS records through DNS provider integ
 - Replay protection and request logging
 - Provider-based integration architecture
 - Gandi LiveDNS integration included
-
-## Requirements
-
-- .NET SDK 10.0
 
 ## Getting Started
 
@@ -104,9 +102,18 @@ dotnet test
 Use the helper script:
 
 ```bash
-./release.sh
+./release.sh v1.0.0
 ```
+
+## Related projects
+
+- [Dynamic DNS Updater API](https://github.com/hmlendea/dynamic-dns-updater-api)
+- [Dynamic DNS Updater Client](https://github.com/hmlendea/dynamic-dns-updater-client)
+
+## Target Framework
+
+The current package targets `.NET 10`.
 
 ## License
 
-This project is licensed under the GPLv3 License. See `LICENSE` for details.
+This project is licensed under the `GNU General Public License v3.0` or later. See [LICENSE](./LICENSE) for details.
