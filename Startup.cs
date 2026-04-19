@@ -18,13 +18,15 @@ namespace DynamicDnsUpdater.API
             services
                 .AddConfigurations(Configuration)
                 .AddCustomServices()
-                .AddNuciApiReplayProtection();
+                .AddNuciApiReplayProtection()
+                .AddNuciApiScannerProtection();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseNuciApiRequestLogging();
             app.UseNuciApiExceptionHandling();
+            app.UseNuciApiScannerProtection();
 
             if (env.IsDevelopment())
             {
