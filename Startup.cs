@@ -24,9 +24,9 @@ namespace DynamicDnsUpdater.API
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseNuciApiRequestLogging();
             app.UseNuciApiExceptionHandling();
             app.UseNuciApiScannerProtection();
+            app.UseNuciApiRequestLogging();
 
             if (env.IsDevelopment())
             {
