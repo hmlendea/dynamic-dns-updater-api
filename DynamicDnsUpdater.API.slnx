@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="DynamicDnsUpdater.API/DynamicDnsUpdater.API.csproj" />
+  <Project Path="DynamicDnsUpdater.API.UnitTests/DynamicDnsUpdater.API.UnitTests.csproj" />
 </Solution>
