@@ -15,7 +15,7 @@ Use this table to indicate which project versions currently receive security mai
 
 | Version | Distribution Channel | Supported |
 |---------|--------------------|-----------|
-| v1.2.4 | GitHub Releases | ✅ |
+| Latest version | GitHub Releases | ✅ |
 | Preceding versions | Any distribution channel | ❌ |
 
 ## 🚨 Reporting a Vulnerability
