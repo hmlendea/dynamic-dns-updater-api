@@ -130,6 +130,10 @@ Please:
 - [Dynamic DNS Updater API](https://github.com/hmlendea/dynamic-dns-updater-api)
 - [Dynamic DNS Updater Client](https://github.com/hmlendea/dynamic-dns-updater-client)
 
+## Security
+
+See the [security policy](./SECURITY.md) for supported versions and vulnerability reporting guidance.
+
 ## License
 
 Licensed under the GNU General Public License v3.0 or later.
