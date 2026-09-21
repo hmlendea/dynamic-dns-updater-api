@@ -134,6 +134,10 @@ Please:
 
 See the [security policy](./SECURITY.md) for supported versions and vulnerability reporting guidance.
 
+## Architecture
+
+See the [architecture document](./ARCHITECTURE.md) for the current system boundaries, runtime flows, dependencies, and extension points.
+
 ## License
 
 Licensed under the GNU General Public License v3.0 or later.
