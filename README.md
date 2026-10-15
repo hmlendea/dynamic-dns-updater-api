@@ -33,6 +33,7 @@ Lightweight ASP.NET Core API for updating DNS records through DNS provider integ
 - [Deployment](#-deployment)
 - [Related Projects](#-related-projects)
 - [Security](#-security)
+- [Privacy and Data](#-privacy-and-data)
 - [Contributing](#-contributing)
 - [Project Engagement](#-project-engagement)
 - [License](#-license)
@@ -215,6 +216,10 @@ The application does not own a database or durable local DNS state. Configure lo
 ## 🔒 Security
 
 For information on reporting security vulnerabilities, see [SECURITY.md](SECURITY.md).
+
+## 🛡️ Privacy and Data
+
+For information on how this application handles personal data, see [PRIVACY.md](PRIVACY.md).
 
 ## 🤝 Contributing
 
