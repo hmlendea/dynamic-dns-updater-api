@@ -1,7 +1,7 @@
 [![Donate](https://img.shields.io/badge/-%E2%99%A5%20Donate-%23ff69b4)](https://hmlendea.go.ro/funding)
 [![Latest Release](https://img.shields.io/github/v/release/hmlendea/dynamic-dns-updater-api)](https://github.com/hmlendea/dynamic-dns-updater-api/releases/latest)
 [![Build Status](https://github.com/hmlendea/dynamic-dns-updater-api/actions/workflows/dotnet.yml/badge.svg)](https://github.com/hmlendea/dynamic-dns-updater-api/actions/workflows/dotnet.yml)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://gnu.org/licenses/gpl-3.0)
+[![License](https://img.shields.io/github/license/hmlendea/dynamic-dns-updater-api)](https://github.com/hmlendea/dynamic-dns-updater-api/blob/master/LICENSE)
 
 # Dynamic DNS Updater API
 
@@ -233,7 +233,7 @@ When doing so, please:
 - Revise the documentation when functionality changes
 - Properly test all modifications, including edge cases and error conditions
 - Include tests for additional or modified functionality
-- Raise a new [issue](https://github.com/hmlendea/personal-data-logger/issues) for problems or suggestions
+- Raise a new [issue](https://github.com/hmlendea/dynamic-dns-updater-api/issues) for problems or suggestions
 
 See the [contributing guidelines](./CONTRIBUTING.md) for details on how to report issues, suggest enhancements, and submit changes.
 
