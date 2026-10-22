@@ -24,6 +24,21 @@ This document describes the testing strategy, organization, patterns, and covera
 |----------|-------|-------|-------|---------|
 | Unit Tests | ~20 | Fast (<1s) | Single class/method | Verify business logic |
 | Integration Tests | ~10 | Medium (5-10s) | Full HTTP pipeline | Verify API contracts |
+| Architecture Tests | 25 | Fast | Production types and references | Enforce dependency boundaries |
+
+### Architecture Tests
+
+The [architecture-test project](../DynamicDnsUpdater.API.ArchitectureTests/DynamicDnsUpdater.API.ArchitectureTests.csproj) uses ArchUnit.NET and NUnit. It loads the production assembly once and excludes test assemblies. Each source selector must match production types before its dependency rule is checked.
+
+Rules protect controller/service separation, provider-adapter isolation, transport contracts, and model/configuration/logging independence. Separate checks inspect declared project references and compiled assembly references for test dependencies, and reject `InternalsVisibleTo` declarations. These rules reflect the existing single-production-assembly design rather than imposing additional Domain, Application, or Infrastructure projects.
+
+Run only this project with:
+
+```bash
+dotnet test DynamicDnsUpdater.API.ArchitectureTests/DynamicDnsUpdater.API.ArchitectureTests.csproj
+```
+
+The solution-wide test command also runs these tests.
 
 ### Test Principles
 

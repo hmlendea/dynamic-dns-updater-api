@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <ExcludeFromCodeCoverage>true</ExcludeFromCodeCoverage>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.11.0" />
+    <PackageReference Include="NUnit" Version="5.0.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="6.3.1" />
+    <PackageReference Include="TngTech.ArchUnitNET.NUnit" Version="0.13.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../DynamicDnsUpdater.API/DynamicDnsUpdater.API.csproj" />
+    <None Include="../DynamicDnsUpdater.API/DynamicDnsUpdater.API.csproj"
+          Link="Production.csproj" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>
